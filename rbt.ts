@@ -92,6 +92,22 @@ export class RBTree {
         if (nodo?.getRightChild() !== this.leaf)
             this.printNode(nodo.getRightChild());
     }
+    
+    public searchNode(num: number, nodo1: NodeRBT): void {
+        if (nodo1.getLeftChild() !== this.leaf) {
+          if (nodo1.getData() !== num)
+          this.searchNode(num, nodo1.getLeftChild())
+        console.log("Dato encontrado")
+        if (nodo1.getRightChild() !== this.leaf)
+          if (nodo1.getData() !== num)
+          this.searchNode(num, nodo1.getLeftChild())
+        }
+    }
+    
+    public search(num1: number): void {
+      this.searchNode(num1, this.root);
+    }
+    
 
     public printAll(): void {
         this.printNode(this.root);
